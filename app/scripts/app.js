@@ -23,6 +23,10 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/gettyimages', {
+        templateUrl: 'views/gettyimages.html',
+        controller: 'GettyimagesCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
