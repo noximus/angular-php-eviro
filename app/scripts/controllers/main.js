@@ -17,35 +17,34 @@ angular.module('generatorAngularComposerApp')
         description: 'No details available'
       };
     }
-
-    $scope.awesomeThings = [];
-    $scope.loading = true;
+    $scope.noximus = "testing";
+    
 
     // Get awesome things list
     $http({method: 'GET', url: '/api/features'}).
-
       success(function (data) {
-        $scope.loading = false;
-        $scope.awesomeThings = data;
+    //     $scope.loading = false;
+    //     $scope.awesomeThings = data;
 
-        // Get description of each thing
-        $scope.awesomeThings.forEach(function (thing) {
-          thing.loading = true;
+    //     // Get description of each thing
+    //     //for (var thing in $scope.awesomeThings) {
+    //     // $scope.awesomeThings.forEach(function (thing) {
+    //       // $scope.awesomeThings.loading = true;
 
-          $http({method: 'GET', url: thing.href}).
-            success(function (data) {
-              thing.loading = false;
-              thing.description = data.description;
-            }).
-            error(function (data, status) {
-              thing.loading = false;
-              thing.error = data && data.description ? data : createUnknownError(status);
-            });
-        });
+    //       // $http({method: 'GET', url: $scope.awesomeThings.href}).
+    //       //   success(function (data) {
+    //       //     $scope.awesomeThings.loading = false;
+    //       //     $scope.awesomeThings.description = data.description;
+    //       //   }).
+    //       //   error(function (data, status) {
+    //       //     $scope.awesomeThings.loading = false;
+    //       //     $scope.awesomeThings.error = data && data.description ? data : createUnknownError(status);
+    //       //   });
+    //     //}
+    //     // });
+        $scope.noximus = "working";
       }).
-
       error(function (data, status) {
-        $scope.loading = false;
-        $scope.error = data && data.description ? data : createUnknownError(status);
-      });
+        $scope.noximus = "error";
+    });
   });
