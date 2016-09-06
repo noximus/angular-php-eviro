@@ -22,13 +22,14 @@ class Features
 
         $sdk = new GettyImages_Client($apiKey,$apiSecret);
 
-        $response = $sdk->Search()->Images()->withPhrase("dog")->execute();
+        $response = $sdk->Search()->Images()->withPhrase("fashion week")->execute();
 
         // var_dump($response);
 // array_replace_recursive($response);
         $features = $response;
         
         // json_encode($response);
+        $features = json_decode($features);
         // echo $features;
 
         return $features;
