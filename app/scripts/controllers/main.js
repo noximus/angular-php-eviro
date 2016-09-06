@@ -9,7 +9,6 @@
  */
 angular.module('generatorAngularComposerApp')
   .controller('MainCtrl', function ($scope, $http) {
-
     function createUnknownError(status) {
       return {
         status: status,
@@ -20,36 +19,85 @@ angular.module('generatorAngularComposerApp')
 
     $scope.awesomeThings = [];
     $scope.loading = true;
-    $scope.noximus = 'testing';
-    
+    $scope.dailyMailGettyImagesList = 'testing';
 
     // Get awesome things list
     $http({method: 'GET', url: '/api/features'}).
-      success(function (data) {
-        $scope.loading = false;
-        $scope.awesomeThings = data;
+    success(function (data) {
+      $scope.loading = false;
+      $scope.dailyMailGettyImagesList = data;
 
-    //     // Get description of each thing
-        // for (var thing in $scope.awesomeThings) {
-        // $scope.awesomeThings.forEach(function (thing) {
-          // $scope.loading = true;
+      $scope.getImage = $scope.dailyMailGettyImagesList.images[0].id;
+      
 
-    //       // $http({method: 'GET', url: $scope.awesomeThings.href}).
-    //       //   success(function (data) {
-    //       //     $scope.awesomeThings.loading = false;
-    //       //     $scope.awesomeThings.description = data.description;
-    //       //   }).
-    //       //   error(function (data, status) {
-    //       //     $scope.awesomeThings.loading = false;
-    //       //     $scope.awesomeThings.error = data && data.description ? data : createUnknownError(status);
-    //       //   });
-    //     //}
-        // });
-        // }
-        // $scope.awesomeThings = JSON.parse($scope.awesomeThings);
-        $scope.noximus = $scope.awesomeThings;
-      }).
-      error(function (data, status) {
-        $scope.noximus = 'error';
+
+      // $http({method: 'GET', url: '/api/features/id='+$scope.getImage}).
+      // success(function (data) {
+      //   $scope.dailyMailHaveImage = data;
+      // }).
+      // error(function (data, status) {
+      //   $scope.dailyMailGettyImagesList = 'error';
+      // });
+
+
+      // $http({method: 'GET', url: 'https://api.gettyimages.com:443/v3/images?ids='+$scope.getImage}).
+      // success(function (data) {
+      //   $scope.dailyMailHaveImage = data;
+      // }).
+      // error(function (data, status) {
+      //   $scope.dailyMailGettyImagesList = 'error';
+      // });
+
+
+      // var request = new XMLHttpRequest();
+      // request.open('GET', 'https://api.gettyimages.com:443/v3/images?ids='+$scope.getImage, true);
+
+      // request.onload = function() {
+      //   if (request.status >= 200 && request.status < 400) {
+      //     //success
+      //     var data = JSON.parse(request.responseText);
+      //   } else {
+      //     // we reached our target server but it returned an error
+      //   }
+      // };
+      // request.onerror = function(argument) {
+      //   // there was a connection error of some sort
+      // };
+      // request.send();
+      // getImages();
+    }).
+    error(function (data, status) {
+      $scope.dailyMailGettyImagesList = 'error';
     });
+    // function getImages() {
+    //   $http({method: 'GET', url: '/api/features/id='+$scope.getImage}).
+    //   success(function (data) {
+    //     $scope.dailyMailHaveImage = data;
+    //   }).
+    //   error(function (data, status) {
+    //     // $scope.dailyMailGettyImagesList = 'error';
+    //   });    
+    // }
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

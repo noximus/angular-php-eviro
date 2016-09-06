@@ -1,9 +1,12 @@
 <div class="jumbotron">
   <h1>Getty Images API test</h1>
   <p class="lead">
-    {{noximus}}
+    {{dailyMailGettyImagesList.result_count}}: image results
+
   </p>
-  
+  <p>
+    First Image ID: {{getImage}}
+  <!-- <p ng-repeat="object in dailyMailGettyImagesList.images track by $index">{{object.id}}</p> -->
 </div>
 
 <div class="row marketing">
@@ -11,8 +14,12 @@
   <p ng-if="loading">Loading...</p>
 
   <div>
-    <h4>Here {{noximus}}</h4>
-    <!-- <p ng-repeat="object in awesomeThings track by $index">{{object.awesomeThings}}</p> -->
+    <h4>Image thumbnails</h4>
+    <p ng-repeat="object in dailyMailGettyImagesList.images track by $index">
+      {{object.id}}
+      <img ng-src="{{object.display_sizes[0].uri}}" alt="" >
+    </p>
+
     
   </div>
 

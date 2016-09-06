@@ -46,6 +46,15 @@ class Application extends Slim
             $this->response->headers->set('Content-Type', 'application/json');
             $this->response->setBody(json_encode($features->gettyImages()));
         });
+        // $this->get('/features/:id', function ($id) {
+        //     $features = new Features($this->config['features']);
+        //     $gettyImage = $features->getImagesWithID($id);
+        //     if ($gettyImage === null) {
+        //         return $this->notFound();
+        //     }
+        //     $this->response->headers->set('Content-Type', 'application/json');
+        //     $this->response->setBody(json_encode($gettyImage));
+        // });
     }
 
     public function handleNotFound()
