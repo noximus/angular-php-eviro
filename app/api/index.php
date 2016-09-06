@@ -31,7 +31,7 @@ try {
         header('Content-Type: application/json');
         echo json_encode(array(
             'status' => 500,
-            'statusText' => 'Internal Server Error',
+            'statusText' => 'Internal Server Error not an',
             'description' => $e->getMessage(),
         ));
     }

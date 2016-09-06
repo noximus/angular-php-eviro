@@ -2,42 +2,35 @@
 
 namespace Api\Model;
 
+use GettyImages\Api\GettyImages_Client;
+
 class Features
 {
     protected $features;
-
-    protected function getHref($id)
-    {
-        return './api/features/' . $id;
-    }
 
     public function __construct($features)
     {
         $this->features = $features;
     }
 
-    public function getFeatures()
+    public function gettyImages()
     {
-        $features = array();
-        foreach ($this->features as $id => $feature) {
-            $features[] = array(
-                'id' => $id,
-                'name' => $feature['name'],
-                'href' => $this->getHref($id),
-            );
-        }
-        return $features;
-    }
+        // $features = ['arrayNox','noximus'];
+        $features = []; // turn into object not an array
+        $apiKey = "ckmsjqeajekch5qwd2fuhg9t";
+        $apiSecret = "vn8Bdgkd6JcM5NKN72nSWxWyQmWgCP8YTYDkBVwwKn9Ye";
 
-    public function getFeature($id)
-    {
-        if (!array_key_exists($id, $this->features)) {
-            return null;
-        }
-        return array_merge(
-            array('id' => $id),
-            $this->features[$id],
-            array('href' => $this->getHref($id))
-        );
+        $sdk = new GettyImages_Client($apiKey,$apiSecret);
+
+        $response = $sdk->Search()->Images()->withPhrase("dog")->execute();
+
+        // var_dump($response);
+// array_replace_recursive($response);
+        $features = $response;
+        
+        // json_encode($response);
+        // echo $features;
+
+        return $features;
     }
 }

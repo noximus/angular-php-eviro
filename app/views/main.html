@@ -1,10 +1,9 @@
 <div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
+  <h1>Getty Images API test</h1>
   <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
+    {{noximus}}
   </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+  
 </div>
 
 <div class="row marketing">
@@ -12,14 +11,15 @@
   <p ng-if="loading">Loading...</p>
 
   <div>
-    <h4>{{noximus}}</h4>
+    <h4>Here {{noximus}}</h4>
+    <!-- <p ng-repeat="object in awesomeThings track by $index">{{object.awesomeThings}}</p> -->
     
   </div>
 
-  <div ng-if="error" class="alert alert-danger">
+  <!-- <div ng-if="error" class="alert alert-danger">
     <strong>{{error.statusText}}</strong>
     <hr>
     <p>{{error.description}}</p>
-  </div>
+  </div> -->
 
 </div>

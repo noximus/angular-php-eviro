@@ -6,6 +6,7 @@ use Api\Model\Features;
 use \Slim\Slim;
 use \Exception;
 
+
 // TODO Move all "features" things to a class with index() and get() methods
 class Application extends Slim
 {
@@ -40,21 +41,10 @@ class Application extends Slim
         $this->configDirectory = __DIR__ . '/../../' . $configDirectory;
         $this->config = $this->initConfig();
 
-        // /features
         $this->get('/features', function () {
             $features = new Features($this->config['features']);
             $this->response->headers->set('Content-Type', 'application/json');
-            $this->response->setBody(json_encode($features->getFeatures()));
-        });
-
-        $this->get('/features/:id', function ($id) {
-            $features = new Features($this->config['features']);
-            $feature = $features->getFeature($id);
-            if ($feature === null) {
-                return $this->notFound();
-            }
-            $this->response->headers->set('Content-Type', 'application/json');
-            $this->response->setBody(json_encode($feature));
+            $this->response->setBody(json_encode($features->gettyImages()));
         });
     }
 
@@ -73,7 +63,7 @@ class Application extends Slim
         $statusText = \Slim\Http\Response::getMessageForCode($status);
         if ($statusText === null) {
             $status = 500;
-            $statusText = 'Internal Server Error';
+            $statusText = 'Internal Server Error application';
         }
 
         $this->response->setStatus($status);

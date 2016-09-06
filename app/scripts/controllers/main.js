@@ -17,19 +17,22 @@ angular.module('generatorAngularComposerApp')
         description: 'No details available'
       };
     }
-    $scope.noximus = "testing";
+
+    $scope.awesomeThings = [];
+    $scope.loading = true;
+    $scope.noximus = 'testing';
     
 
     // Get awesome things list
     $http({method: 'GET', url: '/api/features'}).
       success(function (data) {
-    //     $scope.loading = false;
-    //     $scope.awesomeThings = data;
+        $scope.loading = false;
+        $scope.awesomeThings = data;
 
     //     // Get description of each thing
-    //     //for (var thing in $scope.awesomeThings) {
-    //     // $scope.awesomeThings.forEach(function (thing) {
-    //       // $scope.awesomeThings.loading = true;
+        // for (var thing in $scope.awesomeThings) {
+        // $scope.awesomeThings.forEach(function (thing) {
+          // $scope.loading = true;
 
     //       // $http({method: 'GET', url: $scope.awesomeThings.href}).
     //       //   success(function (data) {
@@ -41,10 +44,11 @@ angular.module('generatorAngularComposerApp')
     //       //     $scope.awesomeThings.error = data && data.description ? data : createUnknownError(status);
     //       //   });
     //     //}
-    //     // });
-        $scope.noximus = "working";
+        // });
+        // }
+        $scope.noximus = $scope.awesomeThings;
       }).
       error(function (data, status) {
-        $scope.noximus = "error";
+        $scope.noximus = 'error';
     });
   });
