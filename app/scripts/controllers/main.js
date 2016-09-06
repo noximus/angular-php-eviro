@@ -46,6 +46,7 @@ angular.module('generatorAngularComposerApp')
     //     //}
         // });
         // }
+        $scope.awesomeThings = JSON.parse($scope.awesomeThings);
         $scope.noximus = $scope.awesomeThings;
       }).
       error(function (data, status) {
