@@ -1,8 +1,8 @@
 <?php
-
 namespace Api\Model;
 
 use GettyImages\Api\GettyImages_Client;
+
 
 class Features
 {

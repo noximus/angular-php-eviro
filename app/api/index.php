@@ -18,9 +18,17 @@ try {
             . ' Ensure slim/slim is in composer.json and run `make update --directory app/api`'
         );
     }
-
+    
     // Run application
     $app = new \Api\Application();
+    // $corsOptions = array(
+    //     "origin" => "*",
+    //     "exposeHeaders" => array("Content-Type", "X-Requested-With", "X-authentication", "X-client"),
+    //     "allowMethods" => array('GET', 'POST', 'OPTIONS')
+    // );
+    // $cors = new \CorsSlim\CorsSlim($corsOptions);
+
+    // $app->add($cors);
     $app->run();
 
 } catch (\Exception $e) {

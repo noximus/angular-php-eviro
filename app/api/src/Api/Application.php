@@ -1,5 +1,4 @@
 <?php
-
 namespace Api;
 
 use Api\Model\Features;
@@ -42,6 +41,7 @@ class Application extends Slim
         $this->config = $this->initConfig();
 
         $this->get('/features', function () {
+            
             $features = new Features($this->config['features']);
             $this->response->headers->set('Content-Type', 'application/json');
             $this->response->setBody(json_encode($features->gettyImages()));
@@ -55,6 +55,7 @@ class Application extends Slim
         //     $this->response->headers->set('Content-Type', 'application/json');
         //     $this->response->setBody(json_encode($gettyImage));
         // });
+
     }
 
     public function handleNotFound()
